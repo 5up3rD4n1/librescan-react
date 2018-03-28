@@ -2,7 +2,10 @@ import React from 'react';
 import { ImageBox } from '../imageBox';
 import { css } from 'aphrodite';
 import { Translate } from 'react-redux-i18n';
-import { buildThumbnailUrl } from '../../../utils/api';
+import {
+  buildThumbnailUrl,
+  buildTifUrl
+} from '../../../utils/api';
 
 import styles from './imageGroup.styles';
 
@@ -12,8 +15,10 @@ const groupOnClick = (updateActiveImages, images) => {
 
 const renderImages = (images, {width, height}) => {
   return images.map(image => {
+
+    const urlFunc = image.processed ? buildTifUrl: buildThumbnailUrl;
     return (
-      <ImageBox source={buildThumbnailUrl(image.project_id, image.id, width, height)} key={image.id} spinner/>
+      <ImageBox source={urlFunc(image.project_id, image.id, width, height)} key={image.id} spinner={!image.processed}/>
     )
   })
 };

@@ -10,3 +10,5 @@ export { default as addImages } from './addImages';
 export { default as updateThumbnailsView } from './updateThumbnailsView';
 export { default as updateViewVisibility } from './updateViewVisibility';
 export { default as updateActiveImages } from './updateActiveImages';
+export { default as updateImageProcessed } from './updateImageProcessed';
+export { default as initApplication } from './initApplication';

@@ -37,3 +37,8 @@ export const createImages = (projectId) => {
 export const buildThumbnailUrl = (projectId, imageId, width=100, height=100) => {
   return `${SERVER_URL}${BASE_URL}/projects/${projectId}/thumbnails/${imageId}?width=${width}&height=${height}`
 };
+
+export const buildTifUrl = (projectId, imageId, width=100, height=100) => {
+  return `${SERVER_URL}${BASE_URL}/projects/${projectId}/tifs/${imageId}?width=${width}&height=${height}`
+};
+

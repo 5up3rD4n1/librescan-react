@@ -11,6 +11,16 @@ export default (state=defaultState, action) => {
     case actions.ADD_IMAGES:
       const active = action.images.map(image => image.id);
       return addImagesToState(state, action.images, active);
+    case actions.UPDATE_IMAGE_PROCESSED:
+      return {
+        ...state,
+        content: {
+          ...state.content, [action.imageId]: {
+            ...state.content[action.imageId],
+            processed: true
+          }
+        }
+      };
     default:
       return state;
   }

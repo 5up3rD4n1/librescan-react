@@ -1,4 +1,5 @@
 export default {
+  INIT_APP: 'Initialize application',
   UPDATE_HEADER_TITLE: 'Update header title',
   ADD_PROJECT: 'Add project',
   FETCH_PROJECT: 'Fetch single project',
@@ -12,5 +13,6 @@ export default {
   CREATE_IMAGES: 'Create images',
   ADD_IMAGES: 'Add images',
   UPDATE_VIEW_VISIBILITY: 'Update view visibility',
-  UPDATE_THUMBNAILS_VIEW: 'Update thumbnails view'
+  UPDATE_THUMBNAILS_VIEW: 'Update thumbnails view',
+  UPDATE_IMAGE_PROCESSED: 'Update image processed'
 };
