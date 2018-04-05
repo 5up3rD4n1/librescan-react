@@ -1,8 +1,8 @@
 import actions from '../actions/types';
 
-const defaultState = {content:{}, order:[], active:[]};
+const defaultState = {content: {}, order: [], active: []};
 
-export default (state=defaultState, action) => {
+export default (state = defaultState, action) => {
   switch (action.type) {
     case actions.UPDATE_ACTIVE_IMAGES:
       return {...state, active: action.images};
@@ -12,21 +12,25 @@ export default (state=defaultState, action) => {
       const active = action.images.map(image => image.id);
       return addImagesToState(state, action.images, active);
     case actions.UPDATE_IMAGE_PROCESSED:
-      return {
-        ...state,
-        content: {
-          ...state.content, [action.imageId]: {
-            ...state.content[action.imageId],
-            processed: true
-          }
-        }
-      };
+      return markAsProcessed(state, action);
     default:
       return state;
   }
 }
 
-const addImagesToState = (state, images, active=[]) => {
+const markAsProcessed = (state, action) => {
+  return {
+    ...state,
+    content: {
+      ...state.content, [action.imageId]: {
+        ...state.content[action.imageId],
+        processed: true
+      }
+    }
+  };
+};
+
+const addImagesToState = (state, images, active = []) => {
   let newState = images.reduce((result, image) => {
     return ({
       ...result,

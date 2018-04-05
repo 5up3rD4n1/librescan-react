@@ -1,3 +1,4 @@
+export { default as initApplication } from './initApplication';
 export { default as updateProjects } from './updateProjects';
 export { default as updateProject } from './updateProject';
 export { default as fetchProjects } from './fetchProjects';
@@ -9,6 +10,7 @@ export { default as createImages } from './createImages';
 export { default as addImages } from './addImages';
 export { default as updateThumbnailsView } from './updateThumbnailsView';
 export { default as updateViewVisibility } from './updateViewVisibility';
+export { default as updateViewProperties } from './updateViewProperties';
 export { default as updateActiveImages } from './updateActiveImages';
 export { default as updateImageProcessed } from './updateImageProcessed';
-export { default as initApplication } from './initApplication';
+export { default as generateOutputs } from './generateOutputs';

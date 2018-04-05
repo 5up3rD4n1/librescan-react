@@ -5,13 +5,13 @@ import ResponsiveSidebar from 'react-sidebar';
 import { ImageList, ImagesStudio, ProjectPreferences } from "../../components";
 
 import {
-  fetchProject,
-  updateActiveProject,
-  fetchImages,
   createImages,
+  fetchImages,
+  fetchProject,
+  updateActiveImages,
+  updateActiveProject,
   updateThumbnailsView,
-  updateViewVisibility,
-  updateActiveImages
+  updateViewVisibility
 } from '../../actions';
 
 import styles, { sidebarStyles } from './projects.styles';
@@ -59,9 +59,9 @@ class Project extends Component {
 
   render() {
     const imageList = <ImageList
-        onItemClick={this.props.updateActiveImages}
-        images={this.props.images}
-        thumbnailProps={this.props.views.thumbnails}
+      onItemClick={this.props.updateActiveImages}
+      images={this.props.images}
+      thumbnailProps={this.props.views.thumbnails}
     />;
 
     return (
@@ -79,6 +79,7 @@ class Project extends Component {
             />
             <ImagesStudio
               studioViewProps={this.props.views.studio}
+              projectId={this.state.projectId}
               onClick={this.props.createImages.bind(null, this.state.projectId)}
               images={this.props.images}
             />

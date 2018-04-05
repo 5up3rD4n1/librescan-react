@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   Home,
   NewProjectForm,
-  applicationComponent
+  applicationComponent,
 } from "../../components";
 
 
-import { Project } from '../projects';
+import { Project, Output } from '../../containers';
 
 import { initApplication } from "../../actions";
 
@@ -26,7 +26,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={applicationComponent(Home)}/>
           <Route exact path="/projects/new" component={applicationComponent(NewProjectForm)}/>
-          <Route exact path="/projects/:projectId/outputs" component={applicationComponent(NewProjectForm)}/>
+          <Route exact path="/projects/:projectId/outputs" component={applicationComponent(Output)}/>
           <Route path="/projects/:projectId/" component={applicationComponent(Project)}/>
         </Switch>
       </Router>

@@ -18,6 +18,11 @@ export default {
     spanish: "Español",
     english: "English"
   },
+  containers:{
+    project: {
+      generateOutputs: 'Generar documento'
+    }
+  },
   components: {
     images: {
       imageList: {

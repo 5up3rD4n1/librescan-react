@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderBottom: '2px solid #eee',
     margin: "20px"
   },
-  activeImagesContainer:{
+  activeImagesContainer: {
     display: 'flex',
     flexGrow: 2,
     flexDirection: 'row',
@@ -43,7 +43,11 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignContent: 'space-between',
+    justifyContent: 'stretch',
     marginBottom: '10px'
+  },
+  shootButton: {
+    flex: '1 !important'
   },
   editionButton: {
     flex: 1,
@@ -54,5 +58,13 @@ export default StyleSheet.create({
   },
   deleteButton: {
     marginRight: '2px'
+  },
+  generateOutputsButtonContainer: {
+    display: 'flex',
+    flexGrow: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    margin: '20px'
   }
 });

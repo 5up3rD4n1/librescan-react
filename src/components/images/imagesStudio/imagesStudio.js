@@ -1,9 +1,11 @@
 import React from 'react';
 import { Translate } from 'react-redux-i18n';
+import { Link } from 'react-router-dom';
 import { css } from 'aphrodite';
 import CameraIcon from 'react-icons/lib/io/camera';
 import RefreshIcon from 'react-icons/lib/io/refresh';
 import TrashIcon from 'react-icons/lib/io/trash-a';
+import DocumentIcon from 'react-icons/lib/go/file-pdf';
 import { ImageBox } from '../../../components'
 import { buildThumbnailUrl } from "../../../utils/api";
 import { HTML_NON_BREAKING_SPACE_ENTITY } from "../../../utils/constants";
@@ -37,11 +39,13 @@ export default (props) => {
 
       </div>
       <div className={css(styles.actionButtonsContainer)}>
-        <button className="btn btn-lg btn-dark" onClick={() => props.onClick()}>
-          <CameraIcon/>
-          {HTML_NON_BREAKING_SPACE_ENTITY}
-          <Translate value="components.images.imagesStudio.shoot"/>
-        </button>
+        <div className={css(styles.editButtonsContainer)}>
+          <button className={css(styles.shootButton) + " btn btn-lg btn-dark"} onClick={() => props.onClick()}>
+            <CameraIcon/>
+            {HTML_NON_BREAKING_SPACE_ENTITY}
+            <Translate value="components.images.imagesStudio.shoot"/>
+          </button>
+        </div>
         <div className={css(styles.editButtonsContainer)}>
           <button className={css(styles.editionButton, styles.deleteButton) + " btn btn-lg btn-dark"}
                   onClick={() => console.log("delete")}>
@@ -56,6 +60,16 @@ export default (props) => {
             <Translate value="components.images.imagesStudio.retake"/>
           </button>
         </div>
+      </div>
+      <div className={css(styles.generateOutputsButtonContainer)}>
+        <Link
+          to={`/projects/${props.projectId}/outputs`}
+          className="btn btn-lg btn-dark"
+        >
+          <DocumentIcon/>
+          {HTML_NON_BREAKING_SPACE_ENTITY}
+          <Translate value="containers.project.generateOutput"/>
+        </Link>
       </div>
     </div>
   );

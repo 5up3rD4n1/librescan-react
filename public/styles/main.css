@@ -1,4 +1,15 @@
-html, body { height: 100%; }
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
 
 .new-project-hint {
     color: #5a6268;

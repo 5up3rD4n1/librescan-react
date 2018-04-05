@@ -13,6 +13,8 @@ export default {
   CREATE_IMAGES: 'Create images',
   ADD_IMAGES: 'Add images',
   UPDATE_VIEW_VISIBILITY: 'Update view visibility',
+  UPDATE_VIEW_PROPERTIES: 'Update view properties',
   UPDATE_THUMBNAILS_VIEW: 'Update thumbnails view',
-  UPDATE_IMAGE_PROCESSED: 'Update image processed'
+  UPDATE_IMAGE_PROCESSED: 'Update image processed',
+  GENERATE_OUTPUTS: 'Generate project outputs'
 };

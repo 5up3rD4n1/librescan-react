@@ -8,6 +8,11 @@ export default StyleSheet.create({
   imagesStudioContainer: {
     display: 'flex',
     flexDirection: 'column',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     marginLeft: '10px'
   }
 });
@@ -61,7 +66,7 @@ const sidebarStyles = {
     position: 'fixed',
     top: 30,
     bottom: 0,
-  },
+  }
 };
 
 export { sidebarStyles };

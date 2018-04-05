@@ -34,6 +34,12 @@ export const createImages = (projectId) => {
   return getJson("POST", url);
 };
 
+export const generateOutputs = (projectId) => {
+  if (!projectId) throw "ProjectId is required to create new images";
+  const url = `/projects/${projectId}/outputs`;
+  return getJson("POST", url);
+};
+
 export const buildThumbnailUrl = (projectId, imageId, width=100, height=100) => {
   return `${SERVER_URL}${BASE_URL}/projects/${projectId}/thumbnails/${imageId}?width=${width}&height=${height}`
 };
@@ -42,3 +48,6 @@ export const buildTifUrl = (projectId, imageId, width=100, height=100) => {
   return `${SERVER_URL}${BASE_URL}/projects/${projectId}/tifs/${imageId}?width=${width}&height=${height}`
 };
 
+export const buildPDFUrl = (projectId) => {
+  return `${SERVER_URL}${BASE_URL}/projects/${projectId}/outputs/pdf`
+};

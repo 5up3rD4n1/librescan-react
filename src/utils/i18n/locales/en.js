@@ -17,6 +17,15 @@ export default {
     spanish: "Español",
     english: "English"
   },
+  containers:{
+    outputs: {
+      processing: "Processing images, %{remaining} remaining of %{total}...",
+      generating: "Generating output, please wait..."
+    },
+    project: {
+      generateOutput: 'Generate output'
+    }
+  },
   components: {
     images: {
       imageList: {
