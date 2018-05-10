@@ -8,6 +8,7 @@ import fetchImages from './fetchImagesEpic';
 import createImages from './createImagesEpic';
 import generateOutputs from './generateOutputsEpic';
 import imageProcessed from './imageProcessedEpic';
+import formsMetadata from './fetchFormsMetadata';
 
 
 export default combineEpics(
@@ -17,5 +18,6 @@ export default combineEpics(
   fetchImages,
   createImages,
   generateOutputs,
-  imageProcessed
+  imageProcessed,
+  formsMetadata
 );

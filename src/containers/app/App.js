@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import {
-  Home,
-  NewProjectForm,
-  applicationComponent,
-} from "../../components";
+import { applicationComponent, Home, } from "../../components";
 
-
-import { Project, Output } from '../../containers';
+import { NewProject, Output, Project } from '../../containers';
 
 import { initApplication } from "../../actions";
-
 
 class App extends Component {
 
@@ -22,14 +16,14 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={applicationComponent(Home)}/>
-          <Route exact path="/projects/new" component={applicationComponent(NewProjectForm)}/>
-          <Route exact path="/projects/:projectId/outputs" component={applicationComponent(Output)}/>
-          <Route path="/projects/:projectId/" component={applicationComponent(Project)}/>
-        </Switch>
-      </Router>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={applicationComponent(Home)}/>
+            <Route exact path="/projects/new" component={applicationComponent(NewProject)}/>
+            <Route exact path="/projects/:projectId/outputs" component={applicationComponent(Output)}/>
+            <Route path="/projects/:projectId/" component={applicationComponent(Project)}/>
+          </Switch>
+        </Router>
     );
   }
 }

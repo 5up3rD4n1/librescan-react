@@ -1,3 +1,3 @@
 export { App } from './app';
-export { Project } from './projects';
+export { Project, NewProject } from './projects';
 export { Output } from './outputs';

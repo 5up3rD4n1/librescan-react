@@ -14,3 +14,5 @@ export { default as updateViewProperties } from './updateViewProperties';
 export { default as updateActiveImages } from './updateActiveImages';
 export { default as updateImageProcessed } from './updateImageProcessed';
 export { default as generateOutputs } from './generateOutputs';
+export { default as updateFormsMetadata } from './updateFormsMetadata';
+export { default as fetchFormsMetadata } from './fetchFormsMetadata';

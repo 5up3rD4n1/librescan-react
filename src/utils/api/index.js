@@ -40,6 +40,12 @@ export const generateOutputs = (projectId) => {
   return getJson("POST", url);
 };
 
+export const formsMetadata = (formId) => {
+  let url = '/preferences/forms';
+  url = formId? `${url}?form=${formId}` : url;
+  return getJson("GET", url);
+};
+
 export const buildThumbnailUrl = (projectId, imageId, width=100, height=100) => {
   return `${SERVER_URL}${BASE_URL}/projects/${projectId}/thumbnails/${imageId}?width=${width}&height=${height}`
 };

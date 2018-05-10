@@ -16,5 +16,7 @@ export default {
   UPDATE_VIEW_PROPERTIES: 'Update view properties',
   UPDATE_THUMBNAILS_VIEW: 'Update thumbnails view',
   UPDATE_IMAGE_PROCESSED: 'Update image processed',
-  GENERATE_OUTPUTS: 'Generate project outputs'
+  GENERATE_OUTPUTS: 'Generate project outputs',
+  FETCH_FORMS_METADATA: 'Fetch forms metadata',
+  UPDATE_FORMS_METADATA: 'Update forms metadata'
 };

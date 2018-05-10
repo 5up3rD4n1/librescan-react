@@ -14,6 +14,13 @@ export default StyleSheet.create({
     right: 0,
     bottom: 0,
     marginLeft: '10px'
+  },
+  newProjectForm: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    margin: '10px',
+    fontSize: 50,
   }
 });
 
