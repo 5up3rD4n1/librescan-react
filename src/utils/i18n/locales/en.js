@@ -17,6 +17,11 @@ export default {
     spanish: "Español",
     english: "English"
   },
+  forms: {
+    helpers: {
+      required: 'Required'
+    }
+  },
   containers:{
     outputs: {
       processing: "Processing images, %{remaining} remaining of %{total}...",
@@ -27,6 +32,14 @@ export default {
     }
   },
   components: {
+    forms: {
+      formFieldsGroup: {
+        project: {
+          name: 'Name',
+          description: "Description"
+        }
+      }
+    },
     images: {
       imageList: {
         label: "Project Images"

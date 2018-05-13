@@ -6,7 +6,6 @@ export default function(action$, store) {
     .filter(() => {
       const {content, order} = store.getState().images;
 
-      console.log(content);
       const remaining = order.reduce((result, key) => result + content[key].processed, 0);
       return remaining >= order.length;
     })

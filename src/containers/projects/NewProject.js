@@ -19,10 +19,12 @@ class NewProject extends Component {
   }
 
   render() {
-    console.log(this.props.formsMetadata);
     return (
       <div className={css(styles.newProjectForm)}>
-          <NewProjectForm onSubmit={this.submit} formsMetadata={this.props.formsMetadata}/>
+          <NewProjectForm
+            onSubmit={this.submit}
+            formsMetadata={this.props.formsMetadata}
+          />
       </div>
     );
   }
@@ -35,7 +37,6 @@ const mapStateToProps = ({formsMetadata}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchFormsMetadata() {
-      console.log("KASKDASD");
       dispatch(fetchFormsMetadata(...arguments))
     }
   }

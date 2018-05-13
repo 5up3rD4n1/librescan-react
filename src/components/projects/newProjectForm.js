@@ -1,98 +1,36 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import { RadioGroup } from 'material-ui/Radio'
-import Checkbox from 'material-ui/Checkbox'
-import Select from 'material-ui/Select'
-import { MenuItem } from 'material-ui/Menu'
+
+import _ from 'lodash';
+
+import { Field, reduxForm } from 'redux-form';
 import Button from 'material-ui/Button'
-import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
 import Card, { CardContent } from 'material-ui/Card'
 import ExpansionPanel, { ExpansionPanelDetails, ExpansionPanelSummary } from 'material-ui/ExpansionPanel';
 import Typography from 'material-ui/Typography';
 import ExpandMoreIcon from 'react-icons/lib/md/arrow-drop-down';
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  margin: {
-    margin: theme.spacing.unit,
-  },
-  withoutLabel: {
-    marginTop: theme.spacing.unit * 3,
-  },
-  textField: {
-    flexBasis: 200,
-  },
-});
+import FormFieldsGroup, { renderTextField } from '../forms/formFieldsGroup';
+import {I18n} from 'react-redux-i18n';
 
 const validate = values => {
+
+  console.log(values);
   const errors = {};
 
   const requiredFields = [
-    'name',
-    'description',
-    'language',
-    'zoom'
+    'project.name',
+    'project.description',
+    'tesseract.language'
   ];
 
   requiredFields.forEach(field => {
-    if (!values[field]) {
-      errors[field] = 'Required'
+    if (!_.get(values, field)) {
+      _.set(errors, field, I18n.t('forms.helpers.required'));
     }
   });
+
   return errors
 };
-
-const renderTextField = ({input, name, label, defaultValue, meta: {touched, error}, ...custom}) => {
-  return (
-    <FormControl fullWidth>
-      <InputLabel htmlFor={name}>{label}</InputLabel>
-      <Input
-        id={name}
-        error={!!touched && !!error}
-        value={input.value && defaultValue}
-        onChange={input.onChange}
-        {...input}
-        {...custom}
-      />
-      <FormHelperText id={name}>{touched && error ? error : ""}</FormHelperText>
-    </FormControl>
-  );
-};
-
-const renderCheckbox = ({input, label}) => (
-  <Checkbox
-    disabled={true}
-    label={label}
-    checked={!!input.value}
-    onChange={input.onChange}
-  />
-);
-
-const renderRadioGroup = ({input, ...rest}) => (
-  <RadioGroup
-    {...input}
-    {...rest}
-    value={input.value}
-    onChange={(event, value) => input.onChange(value)}
-  />
-);
-
-const renderSelectField = ({input, label, meta: {touched, error}, children, ...custom}) => (
-  <Select
-    error={!!touched && !!error}
-    displayEmpty
-    {...input}
-    value={input.value}
-    onChange={(event) => input.onChange(event.target.value)}
-    input={<Input name="age" id="favoriteColor"/>}
-    children={children}
-    {...custom}
-  />
-);
 
 const newProjectForm = props => {
   const {handleSubmit, pristine, reset, submitting} = props;
@@ -104,30 +42,26 @@ const newProjectForm = props => {
           <Typography variant="subheading" color="textSecondary">
             General information
           </Typography>
-
-          <Field
-            name="name"
-            component={renderTextField}
-            label={"Project Name"}
+          <FormFieldsGroup
+            sectionName="project"
+            formMetadata={props.formsMetadata['project']}
           />
-
-          <Field
-            name="description"
-            component={renderTextField}
-            label={"Description"}
-          />
-          <FormControl fullWidth>
-            <InputLabel htmlFor="language">Language</InputLabel>
-            <Field
-              name="language"
-              component={renderSelectField}
-            >
-              <MenuItem value="spa">Spanish</MenuItem>
-              <MenuItem value="eng">English</MenuItem>
-            </Field>
-          </FormControl>
         </CardContent>
       </Card>
+      {props.formsMetadata['tesseract'] &&
+      <Card style={{marginTop: '10px'}}>
+        <CardContent>
+          <Typography variant="title">Tesseract</Typography>
+          <Typography variant="subheading" color="textSecondary">
+            Document text recognition language
+          </Typography>
+          <FormFieldsGroup
+            sectionName="tesseract"
+            formMetadata={props.formsMetadata['tesseract']}
+          />
+        </CardContent>
+      </Card>
+      }
 
       <div style={{marginTop: '10px'}}>
         <ExpansionPanel>
@@ -141,20 +75,25 @@ const newProjectForm = props => {
 
                 <Field
                   name="config.camera.zoom"
-                  component={renderTextField}
                   label={"Zoom"}
-                  type="number"
+                  type="range"
+                  component={renderTextField}
+                  min={0}
+                  max={20}
+                  default={0}
+                  step={1}
+
                 />
               </div>
+              {props.formsMetadata['scantailor'] &&
               <div>
                 <Typography variant="subheading">Scantailor</Typography>
-                <Field
-                  name="config.scantailor.despeckle"
-                  component={renderTextField}
-                  label={"Despekcle"}
-                  type="number"
+                <FormFieldsGroup
+                  sectionName="scantailor"
+                  formMetadata={props.formsMetadata['scantailor']}
                 />
               </div>
+              }
             </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>

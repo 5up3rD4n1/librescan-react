@@ -35,7 +35,7 @@ export const createImages = (projectId) => {
 };
 
 export const generateOutputs = (projectId) => {
-  if (!projectId) throw "ProjectId is required to create new images";
+  if (!projectId) throw "ProjectId is required to generate the output";
   const url = `/projects/${projectId}/outputs`;
   return getJson("POST", url);
 };

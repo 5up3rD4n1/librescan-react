@@ -1,6 +1,6 @@
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
 import { applyMiddleware, compose, createStore } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
+import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk'
 import { createEpicMiddleware } from 'redux-observable';
 import createHistory from 'history/createBrowserHistory'
